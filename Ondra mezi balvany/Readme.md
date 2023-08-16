@@ -7,7 +7,10 @@
  Finally, the whole game engine is recreated from scratch due to very limited Ondra computer performance.
  The game is boulder-dash game and the goal is to go through all the levels to find the Ondra's father Eda.
  
- ![](https://www.youtube.com/watch?v=ajOd5C9i6Ww)
+# Gameplay
+
+[![Watch the video](https://img.youtube.com/vi/ajOd5C9i6Ww/hqdefault.jpg)](https://www.youtube.com/embed/ajOd5C9i6Ww)
+
 
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%20mezi%20balvany/Ondra-mezi-balvany-game1.png)
 > Game screenshot
