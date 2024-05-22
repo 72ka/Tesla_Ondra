@@ -37,9 +37,11 @@ https://www.youtube.com/watch?v=ajOd5C9i6Ww&t=168s
 # Ondra+ 16kB ROM
 
 Homebrew 16kB ROM based on SSM-ROM ´87 including modified BASIC EXP v5.0G named SSM BASIC.
+Since v1.2 it includes new tape azimuth alignment utility.
  
 You can read the development story in [this article](http://www.ondraspo186.8u.cz/?p=656) (Czech language)
 
+Start screen:
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/prirucka.png)
 
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/screen01.png)
@@ -47,6 +49,10 @@ You can read the development story in [this article](http://www.ondraspo186.8u.c
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/screen02.png)
 
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/screen03.png)
+
+Tape head alignment utility:
+
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/screen04.png)
 
 ### Preview
 
