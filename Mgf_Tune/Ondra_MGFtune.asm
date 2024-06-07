@@ -12,8 +12,8 @@ LS174	EQU 11110111b		;PORT3
 	dw	length
 
 ; zacatek programu
-	ORG pstart
-	ld	a, 01b
+	org pstart
+	ld a, 01b
 	out (LS174), a
 mgftune:
 	;smazat obrazovku a nastavit zobrazeni 120 radku
@@ -68,7 +68,7 @@ mgftune:
 	jr .mdread
 .skip	
 	; obnov mapovani
-	ld	a, 01b
+	ld a, 01b
 	out (LS174), a	
 	ld a, d
 	xor 0ffh ;inverze protoze odecitame od nuly a b jede od hora do nuly
