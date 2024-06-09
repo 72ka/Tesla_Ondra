@@ -1,19 +1,23 @@
+;***********************************************************************
+;* UTILITA PRO NASTAVENI MAGNETOFONU pro TESLA ONDRA SPO 186           *
+;* Jan Herman (2hp@seznam.cz), 2024                                    *
+;***********************************************************************
+
+
 ; pstart je zacatek programu
 
-pstart  EQU 4000h
-fstart  EQU pstart - 5
-LS174	EQU 11110111b		;PORT3
+pstart  equ 4000h
+fstart  equ pstart - 5
+LS174	equ 11110111b		;PORT3
 
 ; zahlavi bloku dat
-
  	org fstart
 	db	01h
 	dw	pstart
 	dw	length
-
 ; zacatek programu
 	org pstart
-	ld a, 01b
+	ld	a, 01b
 	out (LS174), a
 mgftune:
 	;smazat obrazovku a nastavit zobrazeni 120 radku
@@ -68,10 +72,10 @@ mgftune:
 	jr .mdread
 .skip	
 	; obnov mapovani
-	ld a, 01b
+	ld	a, 01b
 	out (LS174), a	
 	ld a, d
-	xor 0ffh ;inverze protoze odecitame od nuly a b jede od hora do nuly
+	cpl ;inverze protoze odecitame od nuly a b jede od hora do nuly
 	ld c,a ;uschovame do c
 	ld a, 0ffh
 	sub c ;odecteme pocet predchozich pruchodu, v d je pocet cyklu
@@ -88,10 +92,9 @@ mgftune:
 	ld h,a ;jak daleko doprava bajt nakreslim
 .nenipuls
 	ld a,(hl)
-	ld e,a
 	;nacitam nahodnou hodnotu, aby to vypadalo jako sum, spis pro efekt
 	ld a,r
-	or e ;prictu k jiz zobrazenemu vzorku
+	or (hl) ;prictu k jiz zobrazenemu vzorku
 	ld (hl),a ;a vykreslim na misto kde vyska odpovida dobe mezi hranami pulsu
 	jr .bylimpuls
 .nakresleno
@@ -121,10 +124,10 @@ mgftune:
 	jp .celeznova
 	ret
 lnchr:	
-	DB	02h
-	DW	pstart
+	db	02h
+	dw	pstart
 ; vypocet adres
-length  EQU 	lnchr - pstart
-	END
+length  equ 	lnchr - pstart
+	end
 
 
