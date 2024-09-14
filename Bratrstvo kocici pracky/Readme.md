@@ -12,8 +12,17 @@ This game is only for SSM (ViLi) ROM and its derivatives (e.g. Ondra+)
 # Gameplay
 
 
-![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%20mezi%20balvany/Ondra-mezi-balvany-game1.png)
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Bratrstvo%20kocici%20pracky/bkp01.png)
 > Game screenshot
+
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Bratrstvo%20kocici%20pracky/bkp02.png)
+> Game screenshot
+
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Bratrstvo%20kocici%20pracky/bkp03.png)
+> Game screenshot
+
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Bratrstvo%20kocici%20pracky/bkp04.jpg)
+> Game on real HW - TV Tesla Merkur
 
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%20mezi%20balvany/ondra%20mezi%20balvany-cassette-art.jpg)
 > Cassette J-card insert
