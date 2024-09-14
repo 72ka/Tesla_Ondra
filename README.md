@@ -5,6 +5,15 @@ This repository contains my software for Tesla Ondra Computer [TESLA Ondra SPO18
 ![](http://www.ondraspo186.8u.cz/wp-content/uploads/2023/01/Falling_Blocks_v2_1.jpg)
 > Czechoslovak home computer Tesla Ondra SPO186 - introduced in 1985, on the pic is my amateur clone from 80's
 
+# Bratrstvo kočičí pracky
+
+Text game.
+ 
+You can read the game development story in [this article](http://www.ondraspo186.8u.cz/?p=847) (Czech language)
+
+![](https://github.com/72ka/Tesla_Ondra/blob/main/Bratrstvo%20kocici%20pracky/bkp01.png)
+
+### Preview
 
 # Falling Blocks
 
