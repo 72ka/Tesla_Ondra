@@ -10,6 +10,15 @@ I've created a user manual which is the same look as the Ondra's SSM manuals. Se
 
 ![](https://github.com/72ka/Tesla_Ondra/blob/main/Ondra%2B/img/prirucka.png)
 
+### Changelog
+
+v1.3 - Added Melodik mute on start/restart
+     - fixed Basic CLSG and CLS command for the correct videoRAM area
+v1.2 - Added tape head adjustment utility
+v1.1 - Fix for some games which using same zero-page area
+v1.0 - Initial version
+
+
 ### Screens
 
 Some screenshots from emulator.
