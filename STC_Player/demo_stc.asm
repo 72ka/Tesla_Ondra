@@ -19,6 +19,13 @@ LS173	.equ 11111110b		; LED, strobe and serial_out	(PORT10)
 	dw	length
 	
 	org pstart		;beginning
+	ld a, 01bh ;Esc
+	rst 8
+	db 0
+	ld a, "F" ;FAST
+	rst 8
+	db 0
+	
 	call music_init ;init music
 	;neverending loop	
 .loop
