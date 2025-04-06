@@ -12,6 +12,9 @@ I've created a user manual which is the same look as the Ondra's SSM manuals. Se
 
 ### Changelog
 
+v1.4 - fixed Melodik mute on start/restart
+     - fixed NMI jump
+
 v1.3 - Added Melodik mute on start/restart
      - fixed Basic CLSG and CLS command for the correct videoRAM area
 
