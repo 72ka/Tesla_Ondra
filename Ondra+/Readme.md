@@ -12,6 +12,12 @@ I've created a user manual which is the same look as the Ondra's SSM manuals. Se
 
 ### Changelog
 
+v1.6 - support for TURBO 4MHz
+	* indicates the 4MHz on main screen
+	* modified tape and serial routines (automatically checks the CPU speed)
+     - maximum size optimized
+     - network load waits for clear link (fix OndraSD load issues)
+     
 v1.5 - fixed interrupt initial mode (the older Ondra+ doesn't start on some hardware at all)
      - version info added to main screen
      - minor non-visible improvements to save some bytes
