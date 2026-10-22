@@ -16,11 +16,35 @@
 ; ...or simplified:	2 - fadeout after loop
 ;			1 - no loop
 ;			0 - loop forever
-music_setup:	db	0
+music_setup:	db 0
+currentsong:	db 0 ;index of song (more songs support)
 
-;------------------------------------------------------------------------------
+;master volume, for example fadein and fadeout effects
+;in your code
+;range 0-15
+master_volume:	db	15
+
 music_init:
+		ld a,i
+		push af
+		di
+		call music_init_body
+		pop af
+		ret po
+		ei
+		ret
+
+music_init_body:
 		ld	hl,songdata
+		ld a, (currentsong)
+		add a,a
+		ld d,0
+		ld e,a
+		add hl,de
+		ld e, (hl)
+		inc hl
+		ld d, (hl)
+		ex de,hl
 music_init0:	
 		ld	a,(hl)
 		ld	(speed),a
@@ -240,6 +264,11 @@ outx1:
 		call sn76489_write_frequency
 		;write CH1 ATT
 		ld	hl,AYREGS+AR.AmplA
+		ld a,(AYREGS+AR.Mixer)
+		bit 0,a
+		jr z,.tonA
+		ld hl,mute_volume
+.tonA
 		ld d,10010000b
 		call sn76489_write_volume
 		
@@ -249,6 +278,11 @@ outx1:
 		call sn76489_write_frequency
 		;write CH2 ATT
 		ld	hl,AYREGS+AR.AmplB
+		ld a,(AYREGS+AR.Mixer)
+		bit 1,a
+		jr z,.tonB
+		ld hl,mute_volume
+.tonB
 		ld d,10110000b
 		call sn76489_write_volume
 
@@ -256,8 +290,13 @@ outx1:
 		ld d,11000000b
 		ld	hl,AYREGS+AR.TonC
 		call sn76489_write_frequency
-		;write CH3 ATT		
+		;write CH3 ATT
 		ld	hl,AYREGS+AR.AmplC
+		ld a,(AYREGS+AR.Mixer)
+		bit 2,a
+		jr z,.tonC
+		ld hl,mute_volume
+.tonC
 		ld d,11010000b
 		call sn76489_write_volume
 		
@@ -290,7 +329,7 @@ outx1:
 music_mute:	
 		ld	hl,AYREGS
 		ld	de,AYREGS+1
-		ld	bc,AR.Mixer
+		ld	bc,AR.AmplC
 		ld	(hl),b
 		ldir
 		jp	outx1
@@ -467,6 +506,10 @@ sample_index:
 
 get_frequency:	
 		add	a,0
+		cp 96
+		jr c,.idx
+		ld a,95
+.idx:
 		add	a,a
 		ld	e,a
 		ld	d,0
@@ -481,11 +524,25 @@ get_frequency:
 		bit	4,d
 		jr	z,.negative
 		add	hl,de
-		ret
+		jr	.fold
 
 .negative:	
 		and	a
 		sbc	hl,de
+.fold:
+		ld	b,a
+		ld	a,h
+		and	0Fh		; 12 bitu jako AY
+		ld	h,a
+.foldlp:
+		cp	4		; H < 4 -> perioda <= 3FFh
+		jr	c,.foldok
+		srl	h
+		rr	l
+		ld	a,h
+		jr	.foldlp
+.foldok:
+		ld	a,b
 		ret
 
 resetfadeout:	
@@ -550,14 +607,18 @@ outsn:
 		ld a, 1111b
 		out (LS173), a
 		ret
+outsn_end:
 		
 ; SN76489 write routines
 sn76489_write_volume:
     ; Write volume command to SN76489
     ld a, (hl)
-    xor 0fh ;AY volume to SN
+    ld hl, master_volume
+    and (hl)
+    xor 0fh
     and 0fh
     add a,d
+	
     call outsn  
     ret
     
@@ -580,6 +641,7 @@ sn76489_write_noise:
     add a,d
     call outsn
     ret
+
 
 ; Write frequency command for AY converted for SN76489
 ;channel in D

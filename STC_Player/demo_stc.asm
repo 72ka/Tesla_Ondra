@@ -37,7 +37,8 @@ LS173	.equ 11111110b		; LED, strobe and serial_out	(PORT10)
 	include "lib_melodik_STC_player.asm"
 ;include the STC music file
 songdata:
-	;incbin "songs/qjeta.stc"
+	dw song0
+song0:
 	incbin "songs/dizzyX.stc"	
 lnchr:
 	db	02h
